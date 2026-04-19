@@ -1,0 +1,13 @@
+1. write a program in c implement fixed size array and printing element.
+2. write a program in c implement dynamic size array.
+3. write a progam in c implent a array and demonstrate inserting element at : 
+      a. insert element at starting index .
+      b. insert element at last index.
+      c. insert element at any position.
+
+4. write a progam in c implent a array and demonstrate deleting element at : 
+      a. delete element at starting index .
+      b. delete element at last index.
+      c. delete element at any position.
+
+5. Finding minimum and maximum of an array .      

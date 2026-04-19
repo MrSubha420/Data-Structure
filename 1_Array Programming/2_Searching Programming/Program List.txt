@@ -1,0 +1,2 @@
+1. Implement Linear search using c with their time complexity.
+2. Implement Binary search with their time complexity.
