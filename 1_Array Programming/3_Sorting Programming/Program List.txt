@@ -3,3 +3,6 @@
 3. Implement bubble sort using c with their time complexity analysis.
 4. Implement selection sort using c with their time complexity analysis.
 5. Implement bubble sort using c with their time complexity analysis.
+6. Implement insertation sort using c with their time complexity analysis.
+7. Implement heap sort using c with their time complexity analysis.
+8. Implement radix sort using c with their time complexity analysis.

@@ -3,78 +3,93 @@ Program 4: Array Deletion Operations
 
 Problem Statement:
 Write a C program to perform deletion operations in an array:
-a) Delete from beginning
-b) Delete from end
-c) Delete from any position
+a) Delete from end
+b) Delete from any position
 
 Example:
 Array: 10 20 30 40 50
-Delete from beginning → 20 30 40 50
 Delete from end → 10 20 30 40
 Delete from position 3 → 10 20 40 50
 
 Algorithm:
-   Start
-   Input size and elements of array
-   For beginning: shift all elements left from index 1
-   For end: reduce size by 1
-   For position: shift elements left from that position
-   Print updated array
-   Stop
+   Algorithm: Delete an element from an array with condition check
+
+Start
+Input number of elements n
+Input array elements arr[n]
+Input element item to be deleted
+Set index = -1
+Traverse array from i = 0 to n-1
+If arr[i] == item
+→ set index = i and break
+If index == -1
+Print "Element not found" and Stop
+Else
+If index == n-1
+→ Print "Element is at last position, no shifting required"
+→ Decrease size: n = n - 1
+Else
+→ Print "Element is not last, perform left shifting"
+→ For i = index to n-2
+→ arr[i] = arr[i+1]
+→ Decrease size: n = n - 1
+Print updated array
+Stop
    */
 
-   /*
+/*
    Time Complexity:
-   - Delete from beginning: O(n) - shifting all elements to the left
    - Delete from end: O(1) - simply reducing the size
    - Delete from any position: O(n) - shifting elements to the left from that position
-   */
+*/
 
-   #include <stdio.h>
+#include <stdio.h>
 
 int main() {
-    int arr[100], n, i, pos, choice;
+    int arr[100], n, i, item, index = -1;
 
+    // Input size
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    // Input array
     printf("Enter elements:\n");
     for(i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    printf("\n1. Delete from Beginning");
-    printf("\n2. Delete from End");
-    printf("\n3. Delete from Any Position");
-    printf("\nEnter your choice: ");
-    scanf("%d", &choice);
+    // Element to delete
+    printf("Enter element to delete: ");
+    scanf("%d", &item);
 
-    if(choice == 1) {
-        for(i = 0; i < n - 1; i++) {
-            arr[i] = arr[i + 1];
-        }
-        n--;
-    }
-    else if(choice == 2) {
-        n--;
-    }
-    else if(choice == 3) {
-        printf("Enter position (1 to %d): ", n);
-        scanf("%d", &pos);
-
-        for(i = pos - 1; i < n - 1; i++) {
-            arr[i] = arr[i + 1];
-        }
-        n--;
-    }
-    else {
-        printf("Invalid choice!");
-        return 0;
-    }
-
-    printf("Updated array:\n");
+    // Search element
     for(i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+        if(arr[i] == item) {
+            index = i;
+            break;
+        }
+    }
+
+    // Check existence
+    if(index == -1) {
+        printf("Element not found\n");
+    } else {
+        if(index == n - 1) {
+            printf("Element is at last position, no shifting required\n");
+            n--;  // delete last element
+        } else {
+            printf("Element is not last, performing left shift\n");
+            for(i = index; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            n--;
+        }
+
+        // Print updated array
+        printf("Updated array:\n");
+        for(i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
     }
 
     return 0;
